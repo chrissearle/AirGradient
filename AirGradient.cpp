@@ -309,8 +309,8 @@ TMP_RH AirGradient::periodicFetchData() //
   if (error == SHT3XD_NO_ERROR)
   {
     result = readTemperatureAndHumidity();
-    sprintf(result.t_char, "%d", result.t);
-    sprintf(result.rh_char, "%f", result.rh);
+    sprintf(result.t_char, "%f", result.t);
+    sprintf(result.rh_char, "%d", result.rh);
 
     return result;
   }
