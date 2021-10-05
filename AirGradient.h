@@ -184,7 +184,7 @@ public:
 
   static const uint16_t BAUD_RATE = 9600;
 
-  struct DATA
+  struct PMS_DATA
   {
     // Standard Particles, CF=1
     uint16_t PM_SP_UG_1_0;
@@ -204,8 +204,8 @@ public:
   void passiveMode();
 
   void requestRead();
-  bool read_PMS(DATA &data);
-  bool readUntil(DATA &data, uint16_t timeout = SINGLE_RESPONSE_TIME);
+  bool read_PMS(PMS_DATA &data);
+  bool readUntil(PMS_DATA &data, uint16_t timeout = SINGLE_RESPONSE_TIME);
   const char *getPM2();
   int getPM2_Raw();
 
@@ -268,7 +268,7 @@ private:
 
   uint8_t _payload[12];
   Stream *_stream;
-  DATA *_data;
+  PMS_DATA *_data;
   STATUS _PMSstatus;
   MODE _mode = MODE_ACTIVE;
 

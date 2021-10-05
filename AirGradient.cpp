@@ -105,7 +105,7 @@ const char *AirGradient::getPM2()
 int AirGradient::getPM2_Raw()
 {
   int pm02;
-  DATA data;
+  PMS_DATA data;
   requestRead();
   if (readUntil(data))
   {
@@ -117,6 +117,8 @@ int AirGradient::getPM2_Raw()
     return 0;
   }
 }
+
+
 
 // Private Methods /////////////////////////////////////////////////////////////
 // Functions only available to other functions in this library
@@ -170,7 +172,7 @@ void AirGradient::requestRead()
 }
 
 // Non-blocking function for parse response.
-bool AirGradient::read_PMS(DATA &data)
+bool AirGradient::read_PMS(PMS_DATA &data)
 {
   _data = &data;
   loop();
@@ -179,7 +181,7 @@ bool AirGradient::read_PMS(DATA &data)
 }
 
 // Blocking function for parse response. Default timeout is 1s.
-bool AirGradient::readUntil(DATA &data, uint16_t timeout)
+bool AirGradient::readUntil(PMS_DATA &data, uint16_t timeout)
 {
   _data = &data;
   uint32_t start = millis();
