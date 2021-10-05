@@ -118,6 +118,22 @@ int AirGradient::getPM2_Raw()
   }
 }
 
+PMS_DATA AirGradient::getPM_Raw()
+{
+  PMS_DATA data;
+  requestRead();
+  if (!readUntil(data))
+  {
+    data.PM_SP_UG_1_0 = -1;
+    data.PM_SP_UG_2_5 = -1;
+    data.PM_SP_UG_10_0 = -1;
+    data.PM_AE_UG_1_0 = -1;
+    data.PM_AE_UG_2_5 = -1;
+    data.PM_AE_UG_10_0 = -1;
+  }
+
+  return data;
+}
 
 
 // Private Methods /////////////////////////////////////////////////////////////

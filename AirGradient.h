@@ -159,6 +159,19 @@ struct CO2_READ_RESULT
 };
 //ENUMS STRUCTS FOR CO2 END
 
+  struct PMS_DATA
+  {
+    // Standard Particles, CF=1
+    uint16_t PM_SP_UG_1_0;
+    uint16_t PM_SP_UG_2_5;
+    uint16_t PM_SP_UG_10_0;
+
+    // Atmospheric environment
+    uint16_t PM_AE_UG_1_0;
+    uint16_t PM_AE_UG_2_5;
+    uint16_t PM_AE_UG_10_0;
+  };
+
 // library interface description
 class AirGradient
 {
@@ -184,18 +197,7 @@ public:
 
   static const uint16_t BAUD_RATE = 9600;
 
-  struct PMS_DATA
-  {
-    // Standard Particles, CF=1
-    uint16_t PM_SP_UG_1_0;
-    uint16_t PM_SP_UG_2_5;
-    uint16_t PM_SP_UG_10_0;
 
-    // Atmospheric environment
-    uint16_t PM_AE_UG_1_0;
-    uint16_t PM_AE_UG_2_5;
-    uint16_t PM_AE_UG_10_0;
-  };
 
   void PMS(Stream &);
   void sleep();
@@ -208,6 +210,7 @@ public:
   bool readUntil(PMS_DATA &data, uint16_t timeout = SINGLE_RESPONSE_TIME);
   const char *getPM2();
   int getPM2_Raw();
+  PMS_DATA getPM_Raw();
 
   //PMS VARIABLES PUBLIC_END
 
