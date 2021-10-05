@@ -678,7 +678,6 @@ int AirGradient::getCO2_Raw()
     }
     CO2Response[i] = byte;
   }
-  int valMultiplier = 1;
   int high = CO2Response[3];
   int low = CO2Response[4];
   unsigned long val = high * 256 + low;
