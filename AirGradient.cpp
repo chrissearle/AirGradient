@@ -485,7 +485,7 @@ TMP_RH AirGradient::readTemperatureAndHumidity() //
   result.t = 0;
   result.rh = 0;
 
-  TMP_RH_ErrorCode error;
+  TMP_RH_ErrorCode error = SHT3XD_NO_ERROR;
   uint16_t buf[2];
 
   if (error == SHT3XD_NO_ERROR)
